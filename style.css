@@ -1,3 +1,8 @@
+
+body {
+  background-color: #F2EFE1;
+}
+
 .questionOne {
   text-align: center;
   display: flex;
@@ -16,7 +21,7 @@
 h1 {
   font-size: 60px;
   color: #CE2D36;
-  display: none; /*currently not being displayed as the track-score function is still under construction*/
+  display: none; /*currently not being displayed as the score-tracking function is still under construction*/
 }
 
 
