@@ -4,6 +4,7 @@ var userAnswer = $('#answer');
 var userInput = $('#input');
 
 // Created a variable to hold all the math questions, which will be improved by incorporating Math.random() function (further research and study needed):
+
 var qBank = [
 
   {question: " 5 x 6 ?",
@@ -12,19 +13,22 @@ var qBank = [
   {question: " 3 x 15 ? ",
   answer:45
 },
- {question: " 22 x 100 ?",
- answer: 2200
+  {question: " 22 x 100 ?",
+  answer: 2200
 },
  {question:"33 x 3 ?",
-answer:99
+ answer:99
 },
-{question:"33 x 2 ?",
-answer:66
+  {question:"33 x 2 ?",
+  answer:66
 },
-{question:"25 x 6 ?",
-answer:150
+  {question:"25 x 6 ?",
+  answer:150
 }
 ];
+
+
+
 
 
 function clearFields() {
@@ -32,7 +36,7 @@ function clearFields() {
      document.getElementById("input").value = "";
 };
 
-// Created the below codes when attempted to create a function to keep track of score, however was stuck and coldn't seem to figure out why
+// Created the below codes when attempted to create a function to keep track of score, however was stuck and couldn't seem to figure out why
 // Once the function's codes are figured out, it should be placed under the clearFields() function nested in each IF condition.
 /*
 
@@ -43,18 +47,41 @@ function score() {
 }
 }
 */
+function showScore () { //change this to show "Opps! Try Again! <p>"
+  $('#score').show()
+};
+
+//need help creating the for loop for addScore.. functions
+function addScoreOne () {
+  var foundIndex = qBank.findIndex((el) => (el.answer = qBank[0].answer));
+
+  document.getElementById('track').innerHTML = foundIndex + 1;
+};
+
+function addScoreTwo () {
+  var foundIndex = qBank.findIndex((el) => (el.answer = qBank[1].answer));
+
+  document.getElementById('track').innerHTML = foundIndex + 2;
+};
+
+function addScoreThree () {
+  var foundIndex = qBank.findIndex((el) => (el.answer = qBank[1].answer));
+
+  document.getElementById('track').innerHTML = foundIndex + 2;
+};
 
 var next = function() {
+
   if (userInput.val() == qBank[0].answer) {
     document.getElementById('question').innerHTML = qBank[1].question;
     clearFields();
-    score();
-
-}
+    addScoreOne();
+} /*else {
+  console.log("try again");*/
     if (userInput.val() == qBank[1].answer) {
       document.getElementById('question').innerHTML = qBank[2].question;
       clearFields();
-      score();
+      addScoreTwo();
 
     }
       if (userInput.val() == qBank[2].answer) {
@@ -78,7 +105,8 @@ var next = function() {
     document.getElementById('question').innerHTML = qBank[0].question;
 
 }
-}
+};
+
 //event  caller to invoke the next() function when the Answer button is clicked.
 userAnswer.on("click", function(){
   next();
@@ -92,6 +120,7 @@ $('#input').keypress(function(e) {
    }
 });
 
+};
 
-}
+
 startGame();
