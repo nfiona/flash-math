@@ -4,6 +4,7 @@ var userAnswer = $('#answer');
 var userInput = $('#input');
 
 // Created a variable to hold all the math questions, which will be improved by incorporating Math.random() function (further research and study needed):
+//ND: Think about formatting your code more to make it readable. That is, being more mindful of consistent indentation.
 var qBank = [
 
   {question: " 5 x 6 ?",
@@ -32,6 +33,8 @@ function clearFields() {
      document.getElementById("input").value = "";
 };
 
+//ND: wouldn't leave broken code in here.
+
 // Created the below codes when attempted to create a function to keep track of score, however was stuck and coldn't seem to figure out why
 // Once the function's codes are figured out, it should be placed under the clearFields() function nested in each IF condition.
 /*
@@ -45,6 +48,7 @@ function score() {
 */
 
 var next = function() {
+  //ND: Where you're seeing a lot of redundancy in your code, consider options to refactor. Here, you could have done a for loop. 
   if (userInput.val() == qBank[0].answer) {
     document.getElementById('question').innerHTML = qBank[1].question;
     clearFields();
